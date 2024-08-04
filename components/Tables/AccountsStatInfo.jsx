@@ -31,7 +31,7 @@ export default function AccountsStatInfo({ AccountsInfo }) {
               }}
               align="center"
             >
-              <div className="max767:text-[1.1rem]">Total Recieable</div>
+              <div className="max767:text-[1.1rem]">Total Paid</div>
             </TableCell>
 
             <TableCell
@@ -63,9 +63,7 @@ export default function AccountsStatInfo({ AccountsInfo }) {
               }}
               align="center"
             >
-              <div className="max767:text-[1.3rem]">
-                {AccountsInfo.receivable}
-              </div>
+              <div className="max767:text-[1.3rem]">{AccountsInfo.paid}</div>
             </TableCell>
             <TableCell
               sx={{
@@ -78,7 +76,9 @@ export default function AccountsStatInfo({ AccountsInfo }) {
               }}
               align="center"
             >
-              <div className="max767:text-[1.3rem]">{AccountsInfo.payable}</div>
+              <div className="max767:text-[1.3rem]">
+                {AccountsInfo.remaining}
+              </div>
             </TableCell>
           </TableRow>
         </TableBody>

@@ -78,23 +78,6 @@ export default function CompanyStatInfo({ CompanyInfo }) {
             >
               <div className="max767:text-[1.1rem]">Monthly Sales (PKR)</div>
             </TableCell>
-
-            <TableCell
-              sx={{
-                fontWeight: "600",
-                fontSize: "1.4rem",
-                fontFamily: "Quicksand",
-                paddingTop: "20px",
-                paddingBottom: "20px",
-                color: "white",
-                border: "0px solid white",
-                borderBottomRightRadius: "15px",
-                borderColor: "#000",
-              }}
-              align="center"
-            >
-              <div className="max767:text-[1.1rem]">Monthly Payments (PKR)</div>
-            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -157,20 +140,6 @@ export default function CompanyStatInfo({ CompanyInfo }) {
             >
               <div className="max767:text-[1.3rem]">
                 {CompanyInfo.monthly_sales}
-              </div>
-            </TableCell>
-            <TableCell
-              sx={{
-                fontWeight: "600",
-                fontSize: "1.6rem",
-                fontFamily: "Quicksand",
-                paddingTop: "30px",
-                paddingBottom: "30px",
-              }}
-              align="center"
-            >
-              <div className="max767:text-[1.3rem]">
-                {CompanyInfo.monthly_payments}
               </div>
             </TableCell>
           </TableRow>

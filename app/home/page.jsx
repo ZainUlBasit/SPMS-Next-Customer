@@ -6,6 +6,7 @@ import AccountsStatInfo from "@/components/Tables/AccountsStatInfo";
 import CompanyStatInfo from "@/components/Tables/CompanyStatInfo";
 import { fetchAccounts } from "@/utils/Slices/AccountsStatSlice";
 import { fetchBranchStats } from "@/utils/Slices/CompanyInfoStatSlice";
+import { fetchCustomers } from "@/utils/Slices/CustomerSlice";
 import { fetchTopTen } from "@/utils/Slices/TopTenStatSlice";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,6 +16,13 @@ const Home = () => {
   const CompanyStatState = useSelector((state) => state.CompanyStatState);
   const TopTenState = useSelector((state) => state.TopTenState);
   const AccountsState = useSelector((state) => state.AccountsState);
+  const AuthState = useSelector((state) => state.AuthState);
+
+  const CustomerState = useSelector((state) => state.CustomerState);
+
+  useEffect(() => {
+    dispatch(fetchCustomers());
+  }, []);
 
   useEffect(() => {
     dispatch(fetchBranchStats());
@@ -43,8 +51,12 @@ const Home = () => {
             Cash Summary
           </div>
           <div className="w-[90%]">
-            {AccountsState.data && (
-              <AccountsStatInfo AccountsInfo={AccountsState.data || [{}]} />
+            {CustomerState.data && (
+              <AccountsStatInfo
+                AccountsInfo={CustomerState.data.find(
+                  (dt) => dt._id === "66afcbf5b48d57400252a81c"
+                )}
+              />
             )}
           </div>
           <div className="font-bold text-2xl w-[100%] bg-black text-white text-center py-4 rounded-lg mt-10">
@@ -53,12 +65,6 @@ const Home = () => {
           {TopTenState.data && console.log(TopTenState.data.customers)}
           {TopTenState.data.company && (
             <LineColumnChart Data={TopTenState.data.company} />
-          )}
-          <div className="font-bold text-2xl w-[100%] bg-black text-white text-center py-4 rounded-lg mt-10">
-            Top Ten Customers
-          </div>
-          {TopTenState.data.customers && (
-            <LineColumnChart Data={TopTenState.data.customers} />
           )}
         </div>
       )}

@@ -10,6 +10,7 @@ import CompanyInfoStatSlice from "@/utils/Slices/CompanyInfoStatSlice";
 import TopTenStatSlice from "@/utils/Slices/TopTenStatSlice";
 import AccountsStatSlice from "@/utils/Slices/AccountsStatSlice";
 import CustomerItemLegderSlice from "@/utils/Slices/CustomerItemLegderSlice";
+import ItemCartSlice from "@/utils/Slices/ItemCartSlice";
 
 export const makeStore = () => {
   return configureStore({
@@ -25,6 +26,7 @@ export const makeStore = () => {
       TopTenState: TopTenStatSlice,
       AccountsState: AccountsStatSlice,
       CustomerItemLegderState: CustomerItemLegderSlice,
+      ItemCartState: ItemCartSlice,
     },
   });
 };

@@ -12,7 +12,7 @@ const AuthSlice = createSlice({
     SetAuth: (state, action) => {
       state.auth = true;
       state.loading = false;
-      state.data = action.payload;
+      state.data = [action.payload];
     },
     SetAuthNotFound: (state, action) => {
       state.auth = false;

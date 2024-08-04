@@ -7,7 +7,7 @@ import { IoExit, IoHome, IoSettings } from "react-icons/io5";
 import { BsFillMenuButtonWideFill } from "react-icons/bs";
 import { MdFactory } from "react-icons/md";
 import { GiCrackedGlass } from "react-icons/gi";
-import { FaUserCog } from "react-icons/fa";
+import { FaCartArrowDown, FaUserCog } from "react-icons/fa";
 import { FaUserFriends } from "react-icons/fa";
 import { FaUserClock } from "react-icons/fa";
 import { TbReportAnalytics } from "react-icons/tb";
@@ -35,7 +35,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex justify-between items-center w-full p-5 px-8 fixed bg-[aliceblue] shadow-xl">
+      <div className="flex justify-between items-center w-full p-5 px-8 fixed bg-[aliceblue] shadow-xl z-[100]">
         <div className="flex items-center gap-x-4">
           <BsFillMenuButtonWideFill
             className="text-3xl text-[#000] hover:text-gray-600 cursor-pointer"
@@ -44,13 +44,13 @@ const Navbar = () => {
           <Image src={LogoName} className="w-[150px] h-auto" />
         </div>
         <div className="flex gap-x-4">
-          <FaUserCog
+          {/* <FaUserCog
             className="text-3xl text-[#000] hover:text-gray-600 cursor-pointer"
             onClick={() => router.push("/settings")} // Example: Navigate to settings page
-          />
-          <IoExit
+          /> */}
+          <FaCartArrowDown
             className="text-3xl text-[#000] hover:text-gray-600 cursor-pointer"
-            onClick={handleLogout} // Logout action
+            onClick={() => router.push("/cart")} // Example: Navigate to settings page
           />
         </div>
       </div>

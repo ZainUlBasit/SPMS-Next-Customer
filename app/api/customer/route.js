@@ -127,6 +127,15 @@ export async function PATCH(req, res) {
     Object.assign(customer, Payload);
     // Save the updated item
     await customer.save();
+
+    const UpdateUser = await User.findOneAndUpdate(
+      { customerId },
+      {
+        email,
+        name,
+      },
+      { new: true }
+    );
     return successMessage(res, customer, "Customer Successfully Updated!");
   } catch (err) {
     console.log(err);

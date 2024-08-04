@@ -8,6 +8,7 @@ const TransactionSchema = new Schema({
   items: [{ type: mongoose.Types.ObjectId, ref: "Product" }],
   discount: { type: Number, required: true },
   total_amount: { type: Number, required: true },
+  verify: { type: Boolean, default: false },
 });
 
 module.exports =
