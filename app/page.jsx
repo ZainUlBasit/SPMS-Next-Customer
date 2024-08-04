@@ -80,7 +80,7 @@ export default function Home() {
       {PageLoading ? (
         <PageLoader />
       ) : (
-        <div className="h-fit shadow-[rgba(60,64,67,0.3)_0px_1px_2px_0px,rgba(60,64,67,0.15)_0px_2px_6px_2px] flex justify-center items-center flex-col p-5 px-5 rounded-xl">
+        <div className="h-fit flex justify-center items-center flex-col p-5 px-5 rounded-xl">
           <Image src={Logo} className="w-[200px] h-[200px]" />
           <div className="font-bold text-3xl my-2">Sign In</div>
 
