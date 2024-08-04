@@ -17,28 +17,29 @@ const Home = () => {
   const TopTenState = useSelector((state) => state.TopTenState);
   const AccountsState = useSelector((state) => state.AccountsState);
   const AuthState = useSelector((state) => state.AuthState);
-
   const CustomerState = useSelector((state) => state.CustomerState);
 
   useEffect(() => {
     dispatch(fetchCustomers());
-  }, []);
-
-  useEffect(() => {
     dispatch(fetchBranchStats());
     dispatch(fetchTopTen());
     dispatch(fetchAccounts());
-  }, []);
+  }, [dispatch]);
+
+  const isLoading =
+    CompanyStatState.loading ||
+    TopTenState.loading ||
+    AccountsState.loading ||
+    CustomerState.loading;
+
   return (
     <div className="flex flex-col">
-      {CompanyStatState.loading ||
-      TopTenState.loading ||
-      AccountsState.loading ? (
+      {isLoading ? (
         <div className="flex justify-center items-center h-screen w-screen">
           <PageLoader />
         </div>
       ) : (
-        <div className=" mt-[14vh] flex flex-col justify-center items-center">
+        <div className="mt-[14vh] flex flex-col justify-center items-center">
           <div className="font-bold text-2xl w-[90%] bg-black text-white text-center py-4 rounded-tr-lg rounded-tl-lg">
             Branch Statistics
           </div>
@@ -62,8 +63,7 @@ const Home = () => {
           <div className="font-bold text-2xl w-[100%] bg-black text-white text-center py-4 rounded-lg mt-10">
             Top Ten Companies
           </div>
-          {TopTenState.data && console.log(TopTenState.data.customers)}
-          {TopTenState.data.company && (
+          {TopTenState.data && TopTenState.data.company && (
             <LineColumnChart Data={TopTenState.data.company} />
           )}
         </div>
