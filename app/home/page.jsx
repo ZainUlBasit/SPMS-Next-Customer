@@ -57,7 +57,7 @@ const Home = () => {
             {CustomerState.data && CustomerState.data.length > 0 ? (
               <AccountsStatInfo
                 AccountsInfo={CustomerState.data.find(
-                  (dt) => dt._id === "66afcbf5b48d57400252a81c"
+                  (dt) => dt._id === AuthState.data[0].customerId
                 )}
               />
             ) : (
