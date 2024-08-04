@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://localhost:3001/api",
+  baseURL: "https://spms-next-customer.vercel.app/api",
   withCredentials: true,
   headers: {
     "Content-type": "application/json",
@@ -13,7 +13,7 @@ export const api = axios.create({
 });
 
 export const apiForImage = axios.create({
-  baseURL: "http://localhost:3001/api",
+  baseURL: "https://spms-next-customer.vercel.app/api",
   withCredentials: true,
   headers: {
     "Content-Type": "multipart/form-data",
