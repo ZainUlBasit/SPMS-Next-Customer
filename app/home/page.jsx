@@ -44,27 +44,35 @@ const Home = () => {
             Branch Statistics
           </div>
           <div className="w-[90%]">
-            {CompanyStatState.data && (
-              <CompanyStatInfo CompanyInfo={CompanyStatState.data || [{}]} />
+            {CompanyStatState.data && CompanyStatState.data.length > 0 ? (
+              <CompanyStatInfo CompanyInfo={CompanyStatState.data} />
+            ) : (
+              <div>No Company Stats Available</div>
             )}
           </div>
           <div className="font-bold text-2xl w-[90%] bg-black text-white text-center py-4 rounded-tr-lg rounded-tl-lg mt-5">
             Cash Summary
           </div>
           <div className="w-[90%]">
-            {CustomerState.data && (
+            {CustomerState.data && CustomerState.data.length > 0 ? (
               <AccountsStatInfo
                 AccountsInfo={CustomerState.data.find(
                   (dt) => dt._id === "66afcbf5b48d57400252a81c"
                 )}
               />
+            ) : (
+              <div>No Customer Data Available</div>
             )}
           </div>
           <div className="font-bold text-2xl w-[100%] bg-black text-white text-center py-4 rounded-lg mt-10">
             Top Ten Companies
           </div>
-          {TopTenState.data && TopTenState.data.company && (
+          {TopTenState.data &&
+          TopTenState.data.company &&
+          TopTenState.data.company.length > 0 ? (
             <LineColumnChart Data={TopTenState.data.company} />
+          ) : (
+            <div>No Top Ten Companies Data Available</div>
           )}
         </div>
       )}
