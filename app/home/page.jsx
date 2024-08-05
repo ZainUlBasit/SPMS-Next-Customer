@@ -27,13 +27,13 @@ const Home = () => {
   }, [dispatch]);
 
   const isLoading =
-    CompanyStatState.loading ||
-    TopTenState.loading ||
-    AccountsState.loading ||
-    CustomerState.loading;
+    CompanyStatState?.loading ||
+    TopTenState?.loading ||
+    AccountsState?.loading ||
+    CustomerState?.loading;
 
   const customerId =
-    AuthState.data && AuthState.data.length > 0
+    AuthState?.data && AuthState.data.length > 0
       ? AuthState.data[0].customerId
       : null;
 
@@ -49,7 +49,7 @@ const Home = () => {
             Branch Statistics
           </div>
           <div className="w-[90%]">
-            {CompanyStatState.data && CompanyStatState.data.length > 0 ? (
+            {CompanyStatState?.data && CompanyStatState.data.length > 0 ? (
               <CompanyStatInfo CompanyInfo={CompanyStatState.data} />
             ) : (
               <div>No Company Stats Available</div>
@@ -59,7 +59,7 @@ const Home = () => {
             Cash Summary
           </div>
           <div className="w-[90%]">
-            {CustomerState.data &&
+            {CustomerState?.data &&
             CustomerState.data.length > 0 &&
             customerId ? (
               <AccountsStatInfo
@@ -74,7 +74,7 @@ const Home = () => {
           <div className="font-bold text-2xl w-[100%] bg-black text-white text-center py-4 rounded-lg mt-10">
             Top Ten Companies
           </div>
-          {TopTenState.data &&
+          {TopTenState?.data &&
           TopTenState.data.company &&
           TopTenState.data.company.length > 0 ? (
             <LineColumnChart Data={TopTenState.data.company} />
