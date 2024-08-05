@@ -66,10 +66,13 @@ export default function ItemInfo() {
       };
     });
 
+    const currentDate = new Date();
+    currentDate.setHours(0, 0, 0, 0);
+
     try {
       const response = await CreateTransactionApi({
         customerId: AuthState.data[0].customerId,
-        date: new Date(),
+        date: currentDate,
         items,
         discount: 0, // Replace with actual discount value if applicable
         invoice_no: 12346, // Replace with actual invoice number if applicable
