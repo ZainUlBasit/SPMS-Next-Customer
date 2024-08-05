@@ -32,6 +32,11 @@ const Home = () => {
     AccountsState.loading ||
     CustomerState.loading;
 
+  const customerId =
+    AuthState.data && AuthState.data.length > 0
+      ? AuthState.data[0].customerId
+      : null;
+
   return (
     <div className="flex flex-col">
       {isLoading ? (
@@ -56,11 +61,10 @@ const Home = () => {
           <div className="w-[90%]">
             {CustomerState.data &&
             CustomerState.data.length > 0 &&
-            AuthState.data &&
-            AuthState.data.length > 0 ? (
+            customerId ? (
               <AccountsStatInfo
                 AccountsInfo={CustomerState.data.find(
-                  (dt) => dt._id === AuthState.data[0].customerId
+                  (dt) => dt._id === customerId
                 )}
               />
             ) : (
