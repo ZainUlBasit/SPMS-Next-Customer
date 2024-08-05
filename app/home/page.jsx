@@ -54,7 +54,10 @@ const Home = () => {
             Cash Summary
           </div>
           <div className="w-[90%]">
-            {CustomerState.data && CustomerState.data.length > 0 ? (
+            {CustomerState.data &&
+            CustomerState.data.length > 0 &&
+            AuthState.data &&
+            AuthState.data.length > 0 ? (
               <AccountsStatInfo
                 AccountsInfo={CustomerState.data.find(
                   (dt) => dt._id === AuthState.data[0].customerId
